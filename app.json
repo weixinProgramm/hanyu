@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1890ff",
+    "navigationBarTitleText": "成语接龙",
+    "navigationBarTextStyle":"#1890ff"
+  }
+}

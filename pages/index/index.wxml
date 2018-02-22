@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+    <progress precent="{{time}}" stroke-width="6" color="#1890ff"/>
+    <view class="answer">
+      <input type="text" auto-focus placeholder="请输入成语"  placeholder-class="tipeStyle"/>
+      <button disabled="true" type="primary">确定</button>
+    </view>
+  </view>
+</view>
