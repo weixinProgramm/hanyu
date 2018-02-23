@@ -8,11 +8,11 @@
     </block>
   </view>
   <view class="usermotto">
+    <text class="time">{{time}}s</text>
     <text class="user-motto">{{motto}}</text>
-    <progress precent="{{time}}" stroke-width="6" color="#1890ff"/>
     <view class="answer">
-      <input type="text" auto-focus placeholder="请输入成语"  class="inputStyle" placeholder-class="tipeStyle"/>
-      <button disabled="true" type="primary">确定</button>
+      <input type="text" bindinput="canUseBtn" auto-focus placeholder="请输入成语"  class="inputStyle" placeholder-class="tipeStyle"/>
+      <button bindtap="confirmAnswer" disabled="{{disabled}}" type="primary">确定</button>
     </view>
   </view>
 </view>

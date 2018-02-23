@@ -9,7 +9,10 @@ Page({
     time: 60,
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    disabled: true,
+    value: "",
+    right: false,
   },
   //事件处理函数
   bindViewTap: function() {
@@ -49,17 +52,37 @@ Page({
     this.start();
   },
   start: function(){
-    this.time--;
-    if(this.time>0){
-      setTimeout("this.start()",1000);
+    let limit = --this.data.time;
+    if(limit>0){
+      setTimeout(this.start,1000);
     }
+    this.setData({
+      time: limit
+    })
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  confirmAnswer: function(e){
+    let that = this;
+    if(this.data.value.slice(0,1)===this.data.motto.slice(-1) && word.default.every(function(item){return item === that.data.value;})){
+      this.setData({
+        motto: this.data.value,
+        right: true
+      })
+    }
+  },
+  next: function(){
+
+  },
+  canUseBtn: function(e){
+    this.setData({
+      disabled: ((e.detail.value || "").trim()).length<=0,
+      value: e.detail.value
     })
   }
 })
