@@ -6,7 +6,7 @@ const word = require('../../word.js');
 Page({
   data: {
     motto: word.default[Math.ceil(Math.random()*12864)],
-    time: "60s",
+    time: 60,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -43,6 +43,15 @@ Page({
           })
         }
       })
+    }
+  },
+  onShow: function(){
+    this.start();
+  },
+  start: function(){
+    this.time--;
+    if(this.time>0){
+      setTimeout("this.start()",1000);
     }
   },
   getUserInfo: function(e) {
