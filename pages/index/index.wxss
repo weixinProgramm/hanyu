@@ -20,20 +20,73 @@
 }
 .usermotto {
     margin: 20rpx 0;
-  text-align: center;
+    text-align: center;
+    width: 100%;
 }
 .time{
     color: #1890ff;
     display: block;
 }
 .inputStyle{
-    margin: 20rpx 0;
+    margin: 20rpx auto;
     border: 1rpx solid #f1f1f1;
     padding: 4rpx;
     text-align: left;
+    width: 80%;
 }
 .tipeStyle{
     color: #bbbbbb;
     font-weight: 200;
 
+}
+.challengeResult{
+    transform: translateY(600px);
+    position: absolute;
+    opaicty: 0;
+    color: red;
+    font-size: 100rpx;
+}
+.success{
+    animation: slideTop 0.5s ease-in 1 backwards;
+    animation-play-state: running;
+}
+.confirm{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.warn{
+    color: orange;
+}
+
+.warnTip{
+    animation: shake 0.5s ease-out  1 backwards;
+}
+
+@keyframes shake{
+    0%, 100%{
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90%{
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80%{
+        transform: translateX(5px);
+    }
+}
+
+@keyframes slideTop{
+    0%{
+        opacity: 0;
+        transform: translateY(600px);
+    }
+    70%{
+        opacity: 1;
+        transform: translateY(70px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
 }

@@ -12,7 +12,11 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     disabled: true,
     value: "",
-    right: false,
+    score: 0,
+    fail: null,
+    tipClassName: "",
+    warnClassName: "",
+    warnContent: ""
   },
   //事件处理函数
   bindViewTap: function() {
@@ -55,6 +59,12 @@ Page({
     let limit = --this.data.time;
     if(limit>0){
       setTimeout(this.start,1000);
+    }else{
+      this.setData({
+        fail: true,
+        tipClassName: "fail",
+        warnContent: "时间到了，再来一局"
+      })
     }
     this.setData({
       time: limit
@@ -68,16 +78,29 @@ Page({
     })
   },
   confirmAnswer: function(e){
-    let that = this;
-    if(this.data.value.slice(0,1)===this.data.motto.slice(-1) && word.default.every(function(item){return item === that.data.value;})){
+    if(this.data.value.slice(0,1)===this.data.motto.slice(-1) && word.default.indexOf(this.data.value)>-1){
+      // 倒计时要怎么停一下？
       this.setData({
         motto: this.data.value,
-        right: true
-      })
+        score: this.data.score++,
+        tipClassName: "success",
+        time: 60,
+        fail: false
+      });
+      setTimeout(this.reset,1000);
+    }else if(this.data.time>0){
+      this.setData({
+        warnContent : "未接龙成功，请再接再励",
+        warnClassName: "warnTip",
+      });
     }
   },
-  next: function(){
-
+  reset: function(){
+    this.setData({
+      value: "",
+      tipClassName: "",
+      warnClassName: ""
+    })
   },
   canUseBtn: function(e){
     this.setData({

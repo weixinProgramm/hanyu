@@ -11,8 +11,12 @@
     <text class="time">{{time}}s</text>
     <text class="user-motto">{{motto}}</text>
     <view class="answer">
-      <input type="text" bindinput="canUseBtn" auto-focus placeholder="请输入成语"  class="inputStyle" placeholder-class="tipeStyle"/>
-      <button bindtap="confirmAnswer" disabled="{{disabled}}" type="primary">确定</button>
+      <input type="text" bindinput="canUseBtn" placeholder="请输入成语"  class="inputStyle {{warnClassName}}" placeholder-class="tipeStyle"/>
+      <text class="warn">{{warnContent}}</text>
+      <button bindtap="confirmAnswer" class="confirm" disabled="{{disabled}}" type="primary">确定</button>
     </view>
+  </view>
+  <view class="challengeResult {{tipClassName}}">
+    <text>+ 1</text>
   </view>
 </view>
