@@ -2,10 +2,9 @@
 //获取应用实例
 const app = getApp();
 const word = require('../../pinyin.js');
-
 Page({
   data: {
-    motto: word.default[Math.ceil(Math.random()*12864)],
+    motto: Object.keys(word.default)[Math.ceil(Math.random()*3799)],
     time: 60,
     userInfo: {},
     hasUserInfo: false,
@@ -17,7 +16,8 @@ Page({
     tipClassName: "",
     warnClassName: "",
     warnContent: "",
-    navHover:""
+    navHover:"",
+    items: null
   },
   //事件处理函数
   bindViewTap: function() {
@@ -26,6 +26,12 @@ Page({
     })
   },
   onLoad: function () {
+    this.setData({
+      items:[{
+        value: word.default[this.data.motto],
+        checked: false
+      }]
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

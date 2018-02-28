@@ -56,9 +56,10 @@ Page({
         }
       })
     }
+    this.start();
   },
   onShow: function(){
-    this.start();
+    
   },
   start: function(){
     let limit = --this.data.time;
@@ -83,7 +84,9 @@ Page({
     })
   },
   confirmAnswer: function(e){
-    if(this.data.value.slice(0,1)===this.data.motto.slice(-1) && word.default.indexOf(this.data.value)>-1){
+    let posX = this.data.motto;
+    let posY = this.data.random;
+    if(word.default[posX].items[posY+1]===this.data.value || (posY!==0 && word.default[posX].items[posY-1]===this.data.value)){
       // 倒计时要怎么停一下？
       this.setData({
         motto: this.data.value,
@@ -95,7 +98,7 @@ Page({
       setTimeout(this.reset,1000);
     }else if(this.data.time>0){
       this.setData({
-        warnContent : "未接龙成功，请再接再励",
+        warnContent : "对答错误，请再接再励",
         warnClassName: "warnTip",
       });
     }

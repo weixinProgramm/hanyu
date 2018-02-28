@@ -14,9 +14,13 @@
   </view>
   <view class="usermotto">
     <text class="time">{{time}}s</text>
-    <text class="user-motto">{{motto}}</text>
+    <text class="user-motto">请选择"{{motto}}"的正确读音</text>
     <view class="answer">
-      <input type="text" bindinput="canUseBtn" placeholder="请输入成语"  class="inputStyle {{warnClassName}}" placeholder-class="tipeStyle"/>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </radio-group>
       <text class="warn">{{warnContent}}</text>
       <button bindtap="confirmAnswer" class="confirm" disabled="{{disabled}}" type="primary">确定</button>
     </view>

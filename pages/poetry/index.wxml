@@ -16,7 +16,7 @@
     <text class="time">{{time}}s</text>
     <text class="user-motto">{{motto.items[random]}}</text>
     <view class="answer">
-      <input type="text" bindinput="canUseBtn" placeholder="请输入成语"  class="inputStyle {{warnClassName}}" placeholder-class="tipeStyle"/>
+      <input type="text" bindinput="canUseBtn" placeholder="请输入该句的上句或下句"  class="inputStyle {{warnClassName}}" placeholder-class="tipeStyle"/>
       <text class="warn">{{warnContent}}</text>
       <button bindtap="confirmAnswer" class="confirm" disabled="{{disabled}}" type="primary">确定</button>
     </view>
