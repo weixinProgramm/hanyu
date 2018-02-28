@@ -1,0 +1,113 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #ff5b05;
+}
+
+.user-motto{
+    margin: 20rpx 0;
+}
+.usermotto {
+    margin: 20rpx 0;
+    text-align: center;
+    width: 100%;
+}
+.time{
+    color: #1890ff;
+    display: block;
+}
+.inputStyle{
+    margin: 20rpx auto;
+    border: 1rpx solid #f1f1f1;
+    padding: 4rpx;
+    text-align: left;
+    width: 80%;
+}
+.tipeStyle{
+    color: #bbbbbb;
+    font-weight: 200;
+
+}
+.challengeResult{
+    transform: translateY(600px);
+    position: absolute;
+    opaicty: 0;
+    color: red;
+    font-size: 100rpx;
+}
+.success{
+    animation: slideTop 0.5s ease-in 1 backwards;
+    animation-play-state: running;
+}
+.confirm{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.warn{
+    color: orange;
+}
+.navWrap{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    height: 36px;
+    line-height: 36px;
+    background-color: #f4f4f4;
+    border-width: 1px 1px 1px 0;
+    border-color: #e2e2e2;
+    border-style: solid;
+    color: #333;
+    margin-bottom: 20rpx;
+}
+.nav{
+    flex: 1;
+    border-left: 1px solid #e2e2e2;
+
+}
+.navHover{
+    color: #ffffff;
+    background-color: #ff5b05;
+}
+.warnTip{
+    animation: shake 0.5s ease-out  1 backwards;
+}
+
+@keyframes shake{
+    0%, 100%{
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90%{
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80%{
+        transform: translateX(5px);
+    }
+}
+
+@keyframes slideTop{
+    0%{
+        opacity: 0;
+        transform: translateY(600px);
+    }
+    70%{
+        opacity: 1;
+        transform: translateY(70px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}

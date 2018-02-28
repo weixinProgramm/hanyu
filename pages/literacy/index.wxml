@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="navWrap">
+    <navigator url="/pages/index/index" class="nav{{navHover}}">成语接龙</navigator>
+    <navigator url="/pages/literacy/index" class="nav {{navHover}}">识汉字</navigator>
+    <navigator url="/pages/poetry/index" class="nav {{navHover}}">诗歌基础</navigator>
+  </view>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="time">{{time}}s</text>
+    <text class="user-motto">{{motto}}</text>
+    <view class="answer">
+      <input type="text" bindinput="canUseBtn" placeholder="请输入成语"  class="inputStyle {{warnClassName}}" placeholder-class="tipeStyle"/>
+      <text class="warn">{{warnContent}}</text>
+      <button bindtap="confirmAnswer" class="confirm" disabled="{{disabled}}" type="primary">确定</button>
+    </view>
+  </view>
+  <view class="challengeResult {{tipClassName}}">
+    <text>+ 1</text>
+  </view>
+</view>
