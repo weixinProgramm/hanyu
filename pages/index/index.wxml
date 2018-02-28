@@ -1,5 +1,10 @@
 <!--index.wxml-->
 <view class="container">
+  <view class="navWrap">
+    <navigator url="/pages/index/index" class="nav{{navHover}}">成语接龙</navigator>
+    <navigator url="/pages/literacy/index" class="nav {{navHover}}">识汉字</navigator>
+    <navigator url="/pages/poetry/index" class="nav {{navHover}}">诗歌基础</navigator>
+  </view>
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>

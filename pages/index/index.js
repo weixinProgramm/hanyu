@@ -16,7 +16,8 @@ Page({
     fail: null,
     tipClassName: "",
     warnClassName: "",
-    warnContent: ""
+    warnContent: "",
+    navHover:""
   },
   //事件处理函数
   bindViewTap: function() {
@@ -51,9 +52,10 @@ Page({
         }
       })
     }
+    this.start();
   },
   onShow: function(){
-    this.start();
+    
   },
   start: function(){
     let limit = --this.data.time;
@@ -63,7 +65,7 @@ Page({
       this.setData({
         fail: true,
         tipClassName: "fail",
-        warnContent: "时间到了，再来一局"
+        warnContent: `您得了{{score}}分，时间到了，再来一局`
       })
     }
     this.setData({
@@ -90,7 +92,7 @@ Page({
       setTimeout(this.reset,1000);
     }else if(this.data.time>0){
       this.setData({
-        warnContent : "未接龙成功，请再接再励",
+        warnContent : "未接龙成功，请继续",
         warnClassName: "warnTip",
       });
     }

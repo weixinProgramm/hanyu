@@ -63,6 +63,28 @@
 .warnTip{
     animation: shake 0.5s ease-out  1 backwards;
 }
+.navWrap{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    height: 36px;
+    line-height: 36px;
+    background-color: #f4f4f4;
+    border-width: 1px 1px 1px 0;
+    border-color: #e2e2e2;
+    border-style: solid;
+    color: #333;
+    margin-bottom: 20rpx;
+}
+.nav{
+    flex: 1;
+    border-left: 1px solid #e2e2e2;
+
+}
+.navHover{
+    color: #ffffff;
+    background-color: #ff5b05;
+}
 
 @keyframes shake{
     0%, 100%{
